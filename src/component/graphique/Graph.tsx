@@ -22,8 +22,8 @@ const Graph = () => {
     const layout = { width:820, height: 540 ,title: "Chart Title" };
 
     return(
-        <div className="flex justify-center items-center bg-[#1B3549] p-8 border rounded-2xl">
-                <div>
+        <div className="flex justify-center items-center w-screen">
+                <div className=" border border-black">
                     <Plot data={[{
                         x: isWeight.map(entry => entry.day),
                         y: isWeight.map(entry => entry.weight),

@@ -4,6 +4,7 @@ import {Home} from "@/pages/Home.tsx";
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import {Sidebar} from "@/components/Sidebar.tsx";
 import Timebar from "@/component/Timebar";
+import Graph from "@/component/graphique/Graph.tsx";
 const App = () =>{
     return (
         <ThemeProvider>
@@ -16,8 +17,9 @@ const App = () =>{
                      </div>
                      <div className="flex h-full p-8">
                         <Sidebar />
+
                         <Routes>
-                            <Route path="/home" element={<Home /> }/>
+                            <Route path="/home" element={<Graph /> }/>
                             <Route path="/mood" element={<Home /> }/>
                             <Route path="/sport" element={<Home /> }/>
                             <Route path="/sleep" element={<Home />}/>

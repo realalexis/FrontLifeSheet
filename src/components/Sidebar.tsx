@@ -33,7 +33,7 @@ export const Sidebar = () => {
                         </TooltipContent>
                     </Tooltip>
                 </NavLink>
-                <div className="flex flex-col  rounded-sm border-2 p-2 gap-6">
+                <div className="flex flex-col  rounded-sm border-2 p-1 gap-6">
                     <NavLink to="/sport">
                         <Tooltip>
                             <TooltipTrigger>
