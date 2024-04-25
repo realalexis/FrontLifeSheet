@@ -5,12 +5,14 @@ import {
     MenubarMenu,
     MenubarTrigger,
   } from "@/components/ui/menubar"
-  import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider"
+import { ModeToggle } from "@/components/mode-toggle";
 
 const App = () =>{
     return (
         <ThemeProvider>
             <div>
+                <ModeToggle />
             {/* <GraphPanel /> */}
             {/* <Button>Click me</Button> */}
             <Menubar>
