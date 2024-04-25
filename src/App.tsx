@@ -14,11 +14,8 @@ const App = () =>{
     return (
         <ThemeProvider>
             <Router>
-                <div>
+                <div className="h-screen flex flex-col">
                     <ModeToggle />
-                    {/* <GraphPanel /> */}
-                    {/* <Button>Click me</Button> */}
-
                     <Menubar>
                         <MenubarMenu>
                             <MenubarTrigger>Year</MenubarTrigger>
@@ -28,7 +25,7 @@ const App = () =>{
                             <MenubarTrigger>Day</MenubarTrigger>
                         </MenubarMenu>
                     </Menubar>
-                    <div className="flex">
+                    <div className="flex h-full overflow-y-auto p-8">
                         <Sidebar />
 
                         <Routes>

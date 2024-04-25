@@ -14,26 +14,32 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import {Button} from "@/components/ui/button.tsx";
 
 export const Sidebar = () => {
+
     return(
         <TooltipProvider>
-            <nav className="h-screen rounded-sm border-2  p-4 m-4 flex flex-col justify-between items-center">
+            <nav className="h-full rounded-sm border-2  p-2 flex flex-col justify-between items-center">
                 <NavLink to="/home">
                     <Tooltip>
                         <TooltipTrigger>
-                            <Home/>
+                            <Button variant={"ghost"}>
+                                <Home/>
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>Home</p>
                         </TooltipContent>
                     </Tooltip>
                 </NavLink>
-                <div className="flex flex-col  rounded-sm border-2 p-4 gap-6">
+                <div className="flex flex-col  rounded-sm border-2 p-2 gap-6">
                     <NavLink to="/sport">
                         <Tooltip>
                             <TooltipTrigger>
-                                <Bike/>
+                                <Button variant={"ghost"}>
+                                    <Bike/>
+                                </Button>
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>Sport</p>
@@ -43,7 +49,9 @@ export const Sidebar = () => {
                     <NavLink to="/mood">
                         <Tooltip>
                             <TooltipTrigger>
-                                <Rainbow/>
+                                <Button variant={"ghost"}>
+                                    <Rainbow/>
+                                </Button>
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>Mood</p>
@@ -53,7 +61,9 @@ export const Sidebar = () => {
                     <NavLink to="/sleep">
                         <Tooltip>
                             <TooltipTrigger>
-                                <Bed />
+                                <Button variant={"ghost"}>
+                                    <Bed/>
+                                </Button>
                             </TooltipTrigger>
                             <TooltipContent>
                                 <p>Sleep</p>
@@ -65,7 +75,9 @@ export const Sidebar = () => {
                 <NavLink to="https://github.com/realalexis/FrontLifeSheet">
                     <Tooltip>
                         <TooltipTrigger>
-                            <Github/>
+                            <Button variant={"ghost"}>
+                                <Github />
+                            </Button>
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>Github</p>
