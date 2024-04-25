@@ -1,33 +1,21 @@
-// import GraphPanel from "./component/graphique/GraphPanel.tsx";
-// import { Button } from "@/components/ui/button";
-import {
-    Menubar,
-    MenubarMenu,
-    MenubarTrigger,
-  } from "@/components/ui/menubar"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle";
 import {Home} from "@/pages/Home.tsx";
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import {Sidebar} from "@/components/Sidebar.tsx";
+import Timebar from "@/component/Timebar";
 const App = () =>{
     return (
         <ThemeProvider>
             <Router>
-                <div className="h-screen flex flex-col">
-                    <ModeToggle />
-                    <Menubar>
-                        <MenubarMenu>
-                            <MenubarTrigger>Year</MenubarTrigger>
-                            <MenubarTrigger>Quarter</MenubarTrigger>
-                            <MenubarTrigger>Month</MenubarTrigger>
-                            <MenubarTrigger>Week</MenubarTrigger>
-                            <MenubarTrigger>Day</MenubarTrigger>
-                        </MenubarMenu>
-                    </Menubar>
-                    <div className="flex h-full overflow-y-auto p-8">
+                <div className=" flex flex-col h-screen">
+                    <div className="flex justify-between m-2">
+                      <div className="">Logo ?</div>
+                      <div className=""><Timebar /></div>
+                      <div className=""><ModeToggle /></div>
+                     </div>
+                     <div className="flex h-full p-8">
                         <Sidebar />
-
                         <Routes>
                             <Route path="/home" element={<Home /> }/>
                             <Route path="/mood" element={<Home /> }/>
