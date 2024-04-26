@@ -2,9 +2,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { ModeToggle } from "@/components/mode-toggle";
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import {Sidebar} from "@/components/Sidebar.tsx";
-import Timebar from "@/component/Timebar";
-import Graph from "@/component/graphique/Graph.tsx";
+import Timebar from "@/components/Timebar";
+import Graph from "@/components/graphique/Graph";
 import {NavigationProvider} from "@/hooks/NavigationContext.tsx";
+import Timecarousel from "./components/Timecarousel";
 const App = () =>{
     return (
         <ThemeProvider>
@@ -27,6 +28,7 @@ const App = () =>{
                             </Routes>
 
                         </div>
+                        <div><Timecarousel /></div>
                     </div>
                 </Router>
             </NavigationProvider>
