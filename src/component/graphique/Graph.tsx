@@ -3,8 +3,12 @@ import Plot from 'react-plotly.js'
 import {useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import {useNavigation} from "@/hooks/NavigationContext"
-const Graph = () => {
 
+interface Entry{
+    day?:number,
+    month?:number
+}
+const Graph = () => {
     const [isWeight, setIsWeight] = useState([])
     const location = useLocation();
     const pathSegments = location.pathname.split('/');
@@ -15,12 +19,12 @@ const Graph = () => {
     const url = `http://localhost:8080/api/${lastSegment}/${navigationMode}`
     console.log(url)
 
-
     const fetchWeight = async () =>{
         try {
             const response = await fetch(url);
             const data = await response.json()
-            setIsWeight(data)
+            const dataGraph = data.filter( (entry: Entry) => entry.day && entry.month)
+            setIsWeight(dataGraph)
             console.log(isWeight)
         } catch (error){
             console.log(error)
@@ -31,11 +35,11 @@ const Graph = () => {
         fetchWeight();
     }, [navigationMode, location]);
 
-    const layout = { width:820, height: 540 ,title: "Chart Title" };
+    const layout = {title: `${lastSegment}` };
 
     return(
         <div className="flex justify-center items-center w-screen">
-                <div className=" border border-black">
+                <div className=" border border-black ">
                     <Plot data={[{
                         x: isWeight.map(entry => entry.day),
                         y: isWeight.map(entry => entry.weight),

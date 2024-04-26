@@ -15,16 +15,23 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import {Button} from "@/components/ui/button.tsx";
+import {useState} from "react";
 
 export const Sidebar = () => {
+    const [activeButton, setActiveButton] = useState('');
 
+    const handleButtonClick = (buttonName : string) => {
+
+        setActiveButton(buttonName);
+        console.log(activeButton)
+    };
     return(
         <TooltipProvider>
             <nav className="h-full rounded-sm border-2  p-2 flex flex-col justify-between items-center">
                 <NavLink to="/home">
                     <Tooltip>
                         <TooltipTrigger>
-                            <Button variant={"ghost"}>
+                            <Button variant={activeButton === 'home' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('home')}>
                                 <Home/>
                             </Button>
                         </TooltipTrigger>
@@ -37,7 +44,7 @@ export const Sidebar = () => {
                     <NavLink to="/sport">
                         <Tooltip>
                             <TooltipTrigger>
-                                <Button variant={"ghost"}>
+                                <Button variant={activeButton === 'sport' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('sport')}>
                                     <Bike/>
                                 </Button>
                             </TooltipTrigger>
@@ -49,7 +56,7 @@ export const Sidebar = () => {
                     <NavLink to="/mood">
                         <Tooltip>
                             <TooltipTrigger>
-                                <Button variant={"ghost"}>
+                                <Button variant={activeButton === 'mood' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('mood')}>
                                     <Rainbow/>
                                 </Button>
                             </TooltipTrigger>
@@ -61,7 +68,7 @@ export const Sidebar = () => {
                     <NavLink to="/sleep">
                         <Tooltip>
                             <TooltipTrigger>
-                                <Button variant={"ghost"}>
+                                <Button  variant={activeButton === 'sleep' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('sleep')} >
                                     <Bed/>
                                 </Button>
                             </TooltipTrigger>
