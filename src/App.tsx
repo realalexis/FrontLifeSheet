@@ -25,6 +25,7 @@ const App = () =>{
                                 <Route path="/sport" element={<Graph /> }/>
                                 <Route path="/sleep" element={<Graph />}/>
                             </Routes>
+
                         </div>
                     </div>
                 </Router>

@@ -7,11 +7,8 @@ import {MouseEvent} from "react";
 const Timebar = () =>{
     const { setNavigationMode } = useNavigation();
     const handleNavigationMode = (e: MouseEvent<HTMLButtonElement>) => {
-
         const value = e.currentTarget.textContent?.trim().toLowerCase();
-        console.log(value)
         if (value) {
-            console.log(value)
             setNavigationMode(value);
         }
     };
