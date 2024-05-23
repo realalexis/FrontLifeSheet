@@ -50,54 +50,54 @@ const filterDataByCategorie = (data: Entry[], categorieMode: string) => {
 };
 const Graph = () => {
 
-    const [plotX, setPlotX] = useState<number[]>([])
-    const [plotY, setPlotY] = useState<(number | "")[]>([])
+    // const [plotX, setPlotX] = useState<number[]>([])
+    // const [plotY, setPlotY] = useState<(number | "")[]>([])
 
 
-    const location = useLocation();
-    const pathSegments = location.pathname.split('/');
-    const categorieMode = pathSegments[pathSegments.length - 1];
-    const { navigationMode } = useNavigation();
-
-
-
-    const url = `http://localhost:8080/api/${categorieMode}/year/45`
-    console.log(url)
-    console.log(navigationMode)
-
-
-    const fetchData = async () =>{
-        try {
-            const response = await fetch(url);
-            const data = await response.json()
-
-            const filteredData = filterDataByNavigationMode(data, navigationMode)
-            const filterByCategorie = filterDataByCategorie(filteredData, categorieMode)
-            setPlotX(filterByCategorie.x)
-            setPlotY(filterByCategorie.y)
-
-        } catch (error){
-            console.log(error)
-        }
-
-    }
-    useEffect(() => {
-        fetchData();
-    }, [navigationMode, location]);
+    // const location = useLocation();
+    // const pathSegments = location.pathname.split('/');
+    // const categorieMode = pathSegments[pathSegments.length - 1];
+    // const { navigationMode } = useNavigation();
 
 
 
-    const layout = {title: `${categorieMode}` };
+    // const url = `http://localhost:8080/api/${categorieMode}/year/45`
+    // console.log(url)
+    // console.log(navigationMode)
+
+
+    // const fetchData = async () =>{
+    //     try {
+    //         const response = await fetch(url);
+    //         const data = await response.json()
+
+    //         const filteredData = filterDataByNavigationMode(data, navigationMode)
+    //         const filterByCategorie = filterDataByCategorie(filteredData, categorieMode)
+    //         setPlotX(filterByCategorie.x)
+    //         setPlotY(filterByCategorie.y)
+
+    //     } catch (error){
+    //         console.log(error)
+    //     }
+
+    // }
+    // useEffect(() => {
+    //     // fetchData();
+    // }, [navigationMode, location]);
+
+
+
+    // const layout = {title: `${categorieMode}` };
 
     return(
-        <div className="flex justify-center items-center w-screen" onClick={() => console.log(plotY, plotX)}>
+        <div className="flex justify-center items-center w-screen">
                 <div className=" border border-black ">
-                    <Plot data={[{
+                    {/* <Plot data={[{
                         x: plotY,
                         y: plotX,
                         type: "scatter",
                         mode: "lines"
-                    }]} layout={layout}/>
+                    }]} layout={layout}/> */}
 
                 </div>
         </div>

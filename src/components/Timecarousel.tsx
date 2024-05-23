@@ -1,6 +1,6 @@
 import {useLocation} from "react-router-dom";
 import {useNavigation} from "@/hooks/NavigationContext"
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {
     Carousel,
     CarouselContent,
@@ -14,15 +14,13 @@ const Timecarousel = () =>{
   const pathSegments = location.pathname.split('/');
   const categorieMode = pathSegments[pathSegments.length - 1];
   const { navigationMode } = useNavigation();
-
-  const url = `http://localhost:8080/api/${categorieMode}/year/45`
-  console.log(url)
-  console.log(navigationMode)
-
+ 
   const fetchData = async () =>{
+    const url =`http://localhost:8080/${categorieMode}`
+    
     try {
         const response = await fetch(url);
-        const data = await response.json()
+        const data = await response.json();
         console.log(data)
     } catch (error){
         console.log(error)
@@ -32,14 +30,15 @@ const Timecarousel = () =>{
 useEffect(() => {
     fetchData();
 }, [navigationMode, location]);
+
     return (
       <div>
         <Carousel>
         <CarouselPrevious />
             <CarouselContent>
-                <CarouselItem>2024</CarouselItem>
-                <CarouselItem>2025</CarouselItem>
-                <CarouselItem>2026</CarouselItem>
+            {/* {years.map(year => (
+                        <CarouselItem key={year}>{year}</CarouselItem>
+                    ))} */}
             </CarouselContent>
 
             <CarouselNext />

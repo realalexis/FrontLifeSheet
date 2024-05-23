@@ -28,7 +28,7 @@ const App = () =>{
                             </Routes>
 
                         </div>
-                        <div><Timecarousel /></div>
+                        <div className="flex justify-center pb-10"><Timecarousel /></div>
                     </div>
                 </Router>
             </NavigationProvider>
