@@ -1,97 +1,168 @@
 //icon
-import { Home } from 'lucide-react';
-import { Rainbow } from 'lucide-react';
-import { Bed } from 'lucide-react';
-import { Bike } from 'lucide-react';
-import { Github } from 'lucide-react';
-
-
-import {NavLink} from "react-router-dom";
+import { Home } from "lucide-react";
+import { Rainbow } from "lucide-react";
+import { Bike } from "lucide-react";
+import { Weight } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { Salad } from "lucide-react";
+import { Github } from "lucide-react";
 //shadcn
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
-import {Button} from "@/components/ui/button.tsx";
-import {useState} from "react";
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button.tsx";
 
-export const Sidebar = () => {
-    const [activeButton, setActiveButton] = useState('');
+export const Sidebar = ({
+  handleCategoryChange,
+  activeCategory,
+  setCategory,
+  setType,
+}: {
+  handleCategoryChange: (category: string) => void;
+  activeCategory: string;
+  setCategory: (category: string) => void;
+  setType: (type: string) => void;
+}) => {
+  return (
+    <TooltipProvider>
+      <nav className="h-full rounded-sm border-2  p-2 flex flex-col justify-between items-center">
+        <Tooltip>
+          <TooltipTrigger>
+            <Button
+              variant={activeCategory === "home" ? "destructive" : "ghost"}
+              onClick={() => {
+                handleCategoryChange("home");
+                setCategory("home");
+              }}
+            >
+              <Home />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Home</p>
+          </TooltipContent>
+        </Tooltip>
 
-    const handleButtonClick = (buttonName : string) => {
+        <div className="flex flex-col  rounded-sm border-2 p-1 gap-6">
+          <div>
+            <Tooltip>
+              <TooltipTrigger>
+                <Button
+                  variant={activeCategory === "sport" ? "destructive" : "ghost"}
+                  onClick={() => {
+                    handleCategoryChange("sport");
+                    setCategory("sport");
+                    setType("bar");
+                  }}
+                >
+                  <Bike />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Sport</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip>
+              <TooltipTrigger>
+                <Button
+                  variant={activeCategory === "mood" ? "destructive" : "ghost"}
+                  onClick={() => {
+                    handleCategoryChange("mood");
+                    setCategory("mood");
+                    setType("line");
+                  }}
+                >
+                  <Rainbow />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Mood</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip>
+              <TooltipTrigger>
+                <Button
+                  variant={
+                    activeCategory === "hobbies" ? "destructive" : "ghost"
+                  }
+                  onClick={() => {
+                    handleCategoryChange("hobbies");
+                    setCategory("hobbies");
+                    setType("bar");
+                  }}
+                >
+                  <Sparkles />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Hobbies</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip>
+              <TooltipTrigger>
+                <Button
+                  variant={
+                    activeCategory === "weight" ? "destructive" : "ghost"
+                  }
+                  onClick={() => {
+                    handleCategoryChange("weight");
+                    setCategory("weight");
+                    setType("line");
+                  }}
+                >
+                  <Weight />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Weight</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div>
+            <Tooltip>
+              <TooltipTrigger>
+                <Button
+                  variant={
+                    activeCategory === "dailymeals" ? "destructive" : "ghost"
+                  }
+                  onClick={() => {
+                    handleCategoryChange("dailymeals");
+                    setCategory("dailymeals");
+                    setType("line");
+                  }}
+                >
+                  <Salad />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Daily Meals</p>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+        </div>
 
-        setActiveButton(buttonName);
-        console.log(activeButton)
-    };
-    return(
-        <TooltipProvider>
-            <nav className="h-full rounded-sm border-2  p-2 flex flex-col justify-between items-center">
-                <NavLink to="/home">
-                    <Tooltip>
-                        <TooltipTrigger>
-                            <Button variant={activeButton === 'home' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('home')}>
-                                <Home/>
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Home</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </NavLink>
-                <div className="flex flex-col  rounded-sm border-2 p-1 gap-6">
-                    <NavLink to="/sport">
-                        <Tooltip>
-                            <TooltipTrigger>
-                                <Button variant={activeButton === 'sport' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('sport')}>
-                                    <Bike/>
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Sport</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </NavLink>
-                    <NavLink to="/mood">
-                        <Tooltip>
-                            <TooltipTrigger>
-                                <Button variant={activeButton === 'mood' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('mood')}>
-                                    <Rainbow/>
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Mood</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </NavLink>
-                    <NavLink to="/sleep">
-                        <Tooltip>
-                            <TooltipTrigger>
-                                <Button  variant={activeButton === 'sleep' ? 'destructive' : 'ghost'} onClick={() => handleButtonClick('sleep')} >
-                                    <Bed/>
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Sleep</p>
-                            </TooltipContent>
-                        </Tooltip>
-                    </NavLink>
-                </div>
-
-                <NavLink to="https://github.com/realalexis/FrontLifeSheet">
-                    <Tooltip>
-                        <TooltipTrigger>
-                            <Button variant={"ghost"}>
-                                <Github />
-                            </Button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Github</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </NavLink>
-            </nav>
-        </TooltipProvider>
-    )
-}
+        <div>
+          <Tooltip>
+            <TooltipTrigger>
+              <Button variant={"ghost"}>
+                <Github />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Github</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+      </nav>
+    </TooltipProvider>
+  );
+};
