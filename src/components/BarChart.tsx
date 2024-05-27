@@ -1,4 +1,4 @@
-import { IData } from "@/interfaces/IData";
+import { IData } from "@/types/GraphDataTypes";
 import React from "react";
 import {
   BarChart,
