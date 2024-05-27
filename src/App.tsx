@@ -6,6 +6,7 @@ import Graph from "@/components/Graph";
 import { useCallback, useState } from "react";
 import Timecarousel from "./components/TimeCarousel";
 import { DateType } from "@/types/GraphDataTypes";
+
 const App = () => {
   const [category, setCategory] = useState("home");
   const [selectedTimeUnit, setSelectedTimeUnit] = useState("year");
