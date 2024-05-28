@@ -28,7 +28,7 @@ export const Sidebar = ({
 }) => {
   return (
     <TooltipProvider>
-      <nav className="h-full rounded-sm border-2  p-2 flex flex-col justify-between items-center">
+      <nav className="h-full rounded-md border-2  p-2 flex flex-col justify-between items-center">
         <Tooltip>
           <TooltipTrigger>
             <Button
@@ -46,7 +46,7 @@ export const Sidebar = ({
           </TooltipContent>
         </Tooltip>
 
-        <div className="flex flex-col  rounded-sm border-2 p-1 gap-6">
+        <div className="flex flex-col  rounded-md border-2 p-2 gap-4">
           <div>
             <Tooltip>
               <TooltipTrigger>
