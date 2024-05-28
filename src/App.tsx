@@ -32,17 +32,18 @@ const App = () => {
           <Timebar setSelectedTimeUnit={setSelectedTimeUnit} />
           <ModeToggle />
         </div>
-        <div className="flex  h-full p-8">
+        <div className="flex h-full p-8">
           <Sidebar
             activeCategory={category}
             setCategory={setCategory}
             handleCategoryChange={handleCategoryChange}
             setType={setType}
           />
-          <div className="flex flex-col justify-center items-center gap-16  w-full">
+          <div className="flex flex-col justify-center items-center w-full">
             {category !== "home" && (
               <>
-                <div className="w-[50vw] h-[50vh]">
+                <h2>{category.toUpperCase()}</h2>
+                <div className="flex items-center  text-white  flex-col justify-center gap-4 h-80">
                   <Graph
                     category={category}
                     selectedTimeUnit={selectedTimeUnit}
